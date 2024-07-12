@@ -1,0 +1,15 @@
+<app-child-view />
+<div class="flex flex-col w-40 gap-4">
+  <button (click)="onGetDataFromChild()">Get data from child</button>
+  <p>{{ dataFromChild | json }}</p>
+</div>
+
+<div class="my-10">
+  @for (id of ids; track $index) {
+  <app-child-view-ii *ngFor="let id of ids" [id]="id" />
+  }
+  <div class="flex flex-col w-48 gap-4">
+    <button (click)="onGetDataFromChildren()">Get data from children</button>
+    <p>{{ dataFromChildren | json }}</p>
+  </div>
+</div>
