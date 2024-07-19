@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "start-components": "ng serve --project=component-lesson",
+    "start-directives-pipes": "ng serve --project=directives-pipes-lesson",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
