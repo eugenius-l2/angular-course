@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+button,
+input {
+    padding: 3px 5px;
+    border: 1px solid black;
+}
+
+
+ul {
+    display: flex;
+  }
+  
+  li {
+    margin-right: 20px;
+    list-style: none;
+    cursor: pointer;
+  }
+  
+  .active {
+    color: red;
+  }
+  

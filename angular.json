@@ -302,15 +302,18 @@
     "services-di-lesson": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss",
-          "standalone": false
+        "schematics": {
+          "@schematics/angular:component": {
+            "style": "scss",
+            "changeDetection": "OnPush",
+            "standalone": true
+          }
         },
         "@schematics/angular:directive": {
-          "standalone": false
+          "standalone": true
         },
         "@schematics/angular:pipe": {
-          "standalone": false
+          "standalone": true
         }
       },
       "root": "projects/services-di-lesson",
@@ -395,6 +398,103 @@
             ],
             "styles": [
               "projects/services-di-lesson/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "routing-lesson": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "changeDetection": "OnPush",
+          "standalone": true
+        }
+      },
+      "root": "projects/routing-lesson",
+      "sourceRoot": "projects/routing-lesson/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/routing-lesson",
+            "index": "projects/routing-lesson/src/index.html",
+            "browser": "projects/routing-lesson/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/routing-lesson/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/routing-lesson/public"
+              }
+            ],
+            "styles": [
+              "projects/routing-lesson/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "routing-lesson:build:production"
+            },
+            "development": {
+              "buildTarget": "routing-lesson:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/routing-lesson/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/routing-lesson/public"
+              }
+            ],
+            "styles": [
+              "projects/routing-lesson/src/styles.scss"
             ],
             "scripts": []
           }
