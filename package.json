@@ -8,6 +8,7 @@
     "start-directives-pipes": "ng serve --project=directives-pipes-lesson",
     "start-services-di": "ng serve --project=services-di-lesson",
     "start-routing": "ng serve --project=routing-lesson",
+    "start-rxjs-signals": "ng serve --project=rxjs-signals",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
