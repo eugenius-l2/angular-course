@@ -11,12 +11,11 @@ import { TimeChecker } from '../change-detection.component';
 import { interval } from 'rxjs';
 
 @Component({
-  selector: 'app-cd-child-ii',
-  standalone: true,
-  templateUrl: './cd-child-ii.component.html',
-  styleUrls: ['./cd-child-ii.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, CdChildIIIComponent, FormsModule],
+    selector: 'app-cd-child-ii',
+    templateUrl: './cd-child-ii.component.html',
+    styleUrls: ['./cd-child-ii.component.scss'],
+    // changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, CdChildIIIComponent, FormsModule]
 })
 export class CdChildIIComponent {
   checker = new TimeChecker();

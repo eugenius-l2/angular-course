@@ -4,12 +4,11 @@ import { OnDestroyMethodComponent } from './on-destroy-method/on-destroy-method.
 import { OnDestroyRefComponent } from './on-destroy-ref/on-destroy-ref.component';
 
 @Component({
-  selector: 'app-on-destroy',
-  standalone: true,
-  imports: [CommonModule, OnDestroyMethodComponent, OnDestroyRefComponent],
-  templateUrl: './on-destroy.component.html',
-  styleUrls: ['./on-destroy.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-on-destroy',
+    imports: [CommonModule, OnDestroyMethodComponent, OnDestroyRefComponent],
+    templateUrl: './on-destroy.component.html',
+    styleUrls: ['./on-destroy.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OnDestroyComponent {
   isShown: boolean = false;

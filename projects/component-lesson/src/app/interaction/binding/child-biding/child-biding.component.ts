@@ -9,11 +9,10 @@ import { CommonModule } from '@angular/common';
 import { User } from '../binding.component';
 
 @Component({
-  selector: 'app-child-biding',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './child-biding.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-child-biding',
+    imports: [CommonModule],
+    templateUrl: './child-biding.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChildBidingComponent {
   @Input() users: User[];

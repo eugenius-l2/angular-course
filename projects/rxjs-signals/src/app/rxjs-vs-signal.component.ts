@@ -3,8 +3,8 @@ import { Component, computed, effect, signal } from '@angular/core';
 import { BehaviorSubject, combineLatest, map, tap } from 'rxjs';
 
 @Component({
-  selector: 'rxjs-vs-signals',
-  template: `
+    selector: 'rxjs-vs-signals',
+    template: `
     {{ count() }}
     {{ count$$ | async }}
     {{ count$$.getValue() }}
@@ -15,8 +15,7 @@ import { BehaviorSubject, combineLatest, map, tap } from 'rxjs';
     {{ doubleCount$ | async }}
     {{ doubleCount$ | async }} -->
   `,
-  standalone: true,
-  imports: [AsyncPipe],
+    imports: [AsyncPipe]
 })
 export class RxjsVsSignals {
   count = signal(3);

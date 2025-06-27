@@ -9,12 +9,11 @@ import { RefDirective } from './ref.directive';
 import { BooksComponent } from './books/books.component';
 
 @Component({
-  selector: 'app-dynamic',
-  standalone: true,
-  imports: [CommonModule, RefDirective],
-  templateUrl: './dynamic.component.html',
-  styleUrls: ['./dynamic.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-dynamic',
+    imports: [CommonModule, RefDirective],
+    templateUrl: './dynamic.component.html',
+    styleUrls: ['./dynamic.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DynamicComponent {
   @ViewChild(RefDirective, { static: true }) container: RefDirective;

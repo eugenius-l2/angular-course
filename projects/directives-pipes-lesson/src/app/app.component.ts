@@ -8,19 +8,18 @@ import { ExportAsComponent } from './directives/export-as/export-as.component';
 import { TrackByComponent } from './track-by/track-by.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    RouterOutlet,
-    NgXxxComponent,
-    CompositionComponent,
-    CustomNgifComponent,
-    CustomNgforComponent,
-    ExportAsComponent,
-    TrackByComponent,
-  ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+    selector: 'app-root',
+    imports: [
+        RouterOutlet,
+        NgXxxComponent,
+        CompositionComponent,
+        CustomNgifComponent,
+        CustomNgforComponent,
+        ExportAsComponent,
+        TrackByComponent,
+    ],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'directives-pipes-lesson';

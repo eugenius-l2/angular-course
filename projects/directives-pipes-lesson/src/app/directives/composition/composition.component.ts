@@ -40,16 +40,15 @@ export class ColorDirective implements OnInit {
 export class ColorBoldDirective {}
 
 @Component({
-  selector: 'app-composition',
-  standalone: true,
-  imports: [CommonModule],
-  template: '<span> Color </span>',
-  hostDirectives: [
-    {
-      directive: ColorDirective,
-      inputs: ['color'],
-    },
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-composition',
+    imports: [CommonModule],
+    template: '<span> Color </span>',
+    hostDirectives: [
+        {
+            directive: ColorDirective,
+            inputs: ['color'],
+        },
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CompositionComponent {}

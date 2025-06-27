@@ -4,12 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { TimeChecker } from '../change-detection.component';
 
 @Component({
-  selector: 'app-cd-child-i',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './cd-child-i.component.html',
-  styleUrls: ['./cd-child-i.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-cd-child-i',
+    imports: [CommonModule, FormsModule],
+    templateUrl: './cd-child-i.component.html',
+    styleUrls: ['./cd-child-i.component.scss']
 })
 export class CdChildIComponent {
   checker = new TimeChecker();

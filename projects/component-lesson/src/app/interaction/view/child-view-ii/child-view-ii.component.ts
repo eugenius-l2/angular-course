@@ -7,11 +7,10 @@ import {
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-child-view-ii',
-  standalone: true,
-  imports: [CommonModule],
-  template: '<p>{{ id }}</p>',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-child-view-ii',
+    imports: [CommonModule],
+    template: '<p>{{ id }}</p>',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChildViewIiComponent implements OnInit {
   @Input() id: string;

@@ -9,11 +9,9 @@ import { CommonModule } from '@angular/common';
 import { ChildAfterContentComponent } from './child-after-view/child-after-view.component';
 
 @Component({
-  selector: 'app-after-view',
-  standalone: true,
-  imports: [CommonModule, ChildAfterContentComponent],
-  templateUrl: './after-view.component.html',
-  // changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-after-view',
+    imports: [CommonModule, ChildAfterContentComponent],
+    templateUrl: './after-view.component.html'
 })
 export class AfterViewComponent implements AfterViewInit, AfterViewChecked {
   @ViewChild(ChildAfterContentComponent) component: ChildAfterContentComponent;

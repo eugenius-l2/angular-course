@@ -9,11 +9,10 @@ import {
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-child-on-changes',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './child-on-changes.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-child-on-changes',
+    imports: [CommonModule],
+    templateUrl: './child-on-changes.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OnChildChangesComponent implements OnChanges {
   @Input() data: string;

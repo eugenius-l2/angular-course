@@ -12,17 +12,16 @@ import { CommonModule } from '@angular/common';
 import { VALUE } from '../token';
 
 @Component({
-  selector: 'app-decorator-first',
-  standalone: true,
-  template: `{{ value }}`,
-  providers: [
-    {
-      provide: VALUE,
-      useValue: 'child',
-    },
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule],
+    selector: 'app-decorator-first',
+    template: `{{ value }}`,
+    providers: [
+        {
+            provide: VALUE,
+            useValue: 'child',
+        },
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule]
 })
 export class DecoratorFirstComponent {
   // value = inject(VALUE);

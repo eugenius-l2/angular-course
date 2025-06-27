@@ -9,11 +9,10 @@ import { CommonModule } from '@angular/common';
 import { ChildAfterContentComponent } from './child-after-content/child-after-content.component';
 
 @Component({
-  selector: 'app-after-content',
-  standalone: true,
-  templateUrl: './after-content.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, ChildAfterContentComponent],
+    selector: 'app-after-content',
+    templateUrl: './after-content.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, ChildAfterContentComponent]
 })
 export class AfterContentComponent
   implements AfterContentInit, AfterContentChecked

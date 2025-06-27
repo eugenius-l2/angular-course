@@ -11,11 +11,10 @@ import { CommonModule } from '@angular/common';
 import { ChildContentComponent } from './child-content/child-content.component';
 
 @Component({
-  selector: 'app-content',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './content.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-content',
+    imports: [CommonModule],
+    templateUrl: './content.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContentComponent implements OnInit, AfterContentInit {
   @ContentChild(ChildContentComponent, { static: true })

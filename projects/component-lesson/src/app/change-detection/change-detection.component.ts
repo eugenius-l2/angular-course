@@ -17,12 +17,11 @@ export class TimeChecker {
 }
 
 @Component({
-  selector: 'app-change-detection',
-  standalone: true,
-  templateUrl: './change-detection.component.html',
-  styleUrls: ['./change-detection.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, CdChildIComponent, CdChildIIComponent, FormsModule],
+    selector: 'app-change-detection',
+    templateUrl: './change-detection.component.html',
+    styleUrls: ['./change-detection.component.scss'],
+    // changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, CdChildIComponent, CdChildIIComponent, FormsModule]
 })
 export class ChangeDetectionComponent implements OnInit {
   value: string = '';

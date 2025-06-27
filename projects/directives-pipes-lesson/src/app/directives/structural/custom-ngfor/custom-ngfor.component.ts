@@ -30,15 +30,14 @@ export class CustomNgForDirective {
 }
 
 @Component({
-  selector: 'app-custom-ngfor',
-  standalone: true,
-  imports: [CommonModule, CustomNgForDirective],
-  template: `
+    selector: 'app-custom-ngfor',
+    imports: [CommonModule, CustomNgForDirective],
+    template: `
     <ul>
       <li *customNgFor="let item of list; let i = index">{{ item }} {{ i }}</li>
     </ul>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CustomNgforComponent {
   list: number[] = [1, 2, 3, 4, 5];

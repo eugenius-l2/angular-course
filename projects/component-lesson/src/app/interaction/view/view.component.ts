@@ -14,11 +14,10 @@ import { ChildViewComponent } from './child-view/child-view.component';
 import { ChildViewIiComponent } from './child-view-ii/child-view-ii.component';
 
 @Component({
-  selector: 'app-view',
-  standalone: true,
-  templateUrl: './view.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, ChildViewComponent, ChildViewIiComponent],
+    selector: 'app-view',
+    templateUrl: './view.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, ChildViewComponent, ChildViewIiComponent]
 })
 export class ViewComponent implements OnInit, AfterViewInit {
   @ViewChild(ChildViewComponent, { static: true }) child: ChildViewComponent;

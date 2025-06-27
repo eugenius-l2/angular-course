@@ -17,11 +17,10 @@ const generateNumber = (min = 0, max = 20): number => {
 };
 
 @Component({
-  selector: 'app-do-check',
-  standalone: true,
-  imports: [CommonModule, ChildDoCheckComponent],
-  templateUrl: './do-check.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-do-check',
+    imports: [CommonModule, ChildDoCheckComponent],
+    templateUrl: './do-check.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DoCheckComponent {
   books: Book[] = [

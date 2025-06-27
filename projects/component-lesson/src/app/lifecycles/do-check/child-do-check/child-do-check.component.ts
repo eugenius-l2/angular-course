@@ -13,16 +13,15 @@ import { CommonModule } from '@angular/common';
 import { Author, Book } from '../do-check.component';
 
 @Component({
-  selector: 'app-child-do-check',
-  standalone: true,
-  imports: [CommonModule],
-  template: `
+    selector: 'app-child-do-check',
+    imports: [CommonModule],
+    template: `
     <p>Author id - {{ author.id }}</p>
     @for (book of books; track $index) {
     <p>Book - {{ book | json }}</p>
     }
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChildDoCheckComponent implements OnInit, DoCheck {
   @Input() author: Author;

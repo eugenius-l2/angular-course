@@ -14,11 +14,10 @@ export interface User {
 }
 
 @Component({
-  selector: 'app-binding',
-  standalone: true,
-  templateUrl: './binding.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, ChildBidingComponent],
+    selector: 'app-binding',
+    templateUrl: './binding.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, ChildBidingComponent]
 })
 export class BindingComponent {
   users: User[] = [

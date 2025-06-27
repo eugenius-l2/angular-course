@@ -28,14 +28,13 @@ export class CustomNgIfDirective {
 }
 
 @Component({
-  selector: 'app-custom-ngif',
-  standalone: true,
-  imports: [CommonModule, CustomNgIfDirective],
-  template: `
+    selector: 'app-custom-ngif',
+    imports: [CommonModule, CustomNgIfDirective],
+    template: `
     <ng-template customNgIf [while]="isShow">hello</ng-template>
     <button (click)="onClick()">Click</button>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CustomNgifComponent {
   isShow: boolean = true;

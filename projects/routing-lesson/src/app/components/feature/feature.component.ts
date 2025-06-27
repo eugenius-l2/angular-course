@@ -4,12 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-feature',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './feature.component.html',
-  styleUrls: ['./feature.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-feature',
+    imports: [CommonModule],
+    templateUrl: './feature.component.html',
+    styleUrls: ['./feature.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FeatureComponent {
   isSave = false;

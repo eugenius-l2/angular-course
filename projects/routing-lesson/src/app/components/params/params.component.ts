@@ -3,12 +3,11 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-params',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './params.component.html',
-  styleUrls: ['./params.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-params',
+    imports: [CommonModule],
+    templateUrl: './params.component.html',
+    styleUrls: ['./params.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ParamsComponent {
   constructor(private route: ActivatedRoute) {

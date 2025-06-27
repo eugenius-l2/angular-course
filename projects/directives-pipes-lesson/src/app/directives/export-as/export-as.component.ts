@@ -13,13 +13,12 @@ export class ExportedDirective {
 }
 
 @Component({
-  selector: 'app-export-as',
-  standalone: true,
-  imports: [CommonModule, ExportedDirective],
-  template: `
+    selector: 'app-export-as',
+    imports: [CommonModule, ExportedDirective],
+    template: `
     <p exportedD #exportedD="exportedD">text</p>
     <button (click)="exportedD.click()">click</button>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ExportAsComponent {}

@@ -16,11 +16,10 @@ import {
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-lifecycles',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './lifecycles.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-lifecycles',
+    imports: [CommonModule],
+    templateUrl: './lifecycles.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LifecyclesComponent
   implements

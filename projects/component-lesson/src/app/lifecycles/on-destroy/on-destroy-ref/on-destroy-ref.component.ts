@@ -8,12 +8,11 @@ import {
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-on-destroy-ref',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './on-destroy-ref.component.html',
-  styleUrls: ['./on-destroy-ref.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-on-destroy-ref',
+    imports: [CommonModule],
+    templateUrl: './on-destroy-ref.component.html',
+    styleUrls: ['./on-destroy-ref.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OnDestroyRefComponent implements OnInit {
   destroyRef = inject(DestroyRef);

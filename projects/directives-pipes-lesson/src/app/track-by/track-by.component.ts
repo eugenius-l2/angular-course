@@ -5,9 +5,8 @@ import { CildTrackByComponent } from './child-track-by.component';
 export type Item = { num: number };
 
 @Component({
-  selector: 'app-track-by',
-  standalone: true,
-  template: `
+    selector: 'app-track-by',
+    template: `
     <button class="mb-2" (click)="onAdd()">Add</button>
     <app-child-track-by
       *ngFor="let item of list; trackBy: trackByFn"
@@ -24,8 +23,8 @@ export type Item = { num: number };
     />
     } -->
   `,
-  imports: [CommonModule, CildTrackByComponent],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, CildTrackByComponent],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TrackByComponent {
   list: Item[] = [{ num: 1 }, { num: 2 }, { num: 3 }, { num: 4 }, { num: 5 }];

@@ -12,24 +12,23 @@ import { ChangeDetectionComponent } from './change-detection/change-detection.co
 import { DynamicComponent } from './dynamic/dynamic.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    StylingComponent,
-    InteractionComponent,
-    LifecyclesComponent,
-    OnChangesComponent,
-    DoCheckComponent,
-    AfterContentComponent,
-    ChildAfterContentComponent,
-    AfterViewComponent,
-    OnDestroyComponent,
-    ChangeDetectionComponent,
-    DynamicComponent,
-  ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
-  encapsulation: ViewEncapsulation.Emulated,
+    selector: 'app-root',
+    imports: [
+        StylingComponent,
+        InteractionComponent,
+        LifecyclesComponent,
+        OnChangesComponent,
+        DoCheckComponent,
+        AfterContentComponent,
+        ChildAfterContentComponent,
+        AfterViewComponent,
+        OnDestroyComponent,
+        ChangeDetectionComponent,
+        DynamicComponent,
+    ],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+    encapsulation: ViewEncapsulation.Emulated
 })
 export class AppComponent {
   title = 'component-lesson';

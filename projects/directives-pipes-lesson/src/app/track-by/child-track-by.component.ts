@@ -11,13 +11,12 @@ import { CommonModule } from '@angular/common';
 import { Item } from './track-by.component';
 
 @Component({
-  selector: 'app-child-track-by',
-  standalone: true,
-  imports: [CommonModule],
-  template: `
+    selector: 'app-child-track-by',
+    imports: [CommonModule],
+    template: `
     {{ item.num }} - <button (click)="delete.emit(item)">Remove</button>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CildTrackByComponent implements OnInit, OnDestroy {
   @Input() item!: Item;

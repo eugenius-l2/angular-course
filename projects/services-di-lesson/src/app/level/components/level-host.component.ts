@@ -5,16 +5,15 @@ import { LevelFirstComponent } from './level-first.component';
 import { LevelSecondComponent } from './level-second.component';
 
 @Component({
-  selector: 'app-level-host',
-  standalone: true,
-  template: `
+    selector: 'app-level-host',
+    template: `
     <button (click)="counterService.increment()">Increment</button>
     <app-level-first />
     <app-level-second />
   `,
-  styles: [':host { display: flex; flex-direction: column }'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, LevelFirstComponent, LevelSecondComponent],
+    styles: [':host { display: flex; flex-direction: column }'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, LevelFirstComponent, LevelSecondComponent]
 })
 export class OverviewHostComponent {
   counterService = inject(CounterService);

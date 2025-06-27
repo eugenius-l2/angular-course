@@ -4,14 +4,13 @@ import { CounterService } from '../level/counter.service';
 import { COUNTER, RANDOM } from './token-host.component';
 
 @Component({
-  selector: 'app-token-first',
-  standalone: true,
-  imports: [CommonModule],
-  template: `
+    selector: 'app-token-first',
+    imports: [CommonModule],
+    template: `
     first {{ counterService.value() }} <br />
     {{ randomNum }}
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TokenHostComponent {
   counterService = inject<CounterService>(COUNTER);
