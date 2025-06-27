@@ -11,7 +11,6 @@ import {
   OnDestroy,
   OnInit,
   afterNextRender,
-  afterRender,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -35,9 +34,9 @@ export class LifecyclesComponent
   @Input() data: unknown;
 
   constructor() {
-    afterRender(() => {
-      console.log('afterRender');
-    });
+    // afterRender(() => {
+    //   console.log('afterRender');
+    // });
 
     afterNextRender(() => {
       console.log('afterNextRender');
