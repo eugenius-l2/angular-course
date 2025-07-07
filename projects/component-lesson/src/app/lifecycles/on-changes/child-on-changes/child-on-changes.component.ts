@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  input,
   Input,
   OnChanges,
   SimpleChange,
@@ -15,7 +16,9 @@ import { CommonModule } from '@angular/common';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OnChildChangesComponent implements OnChanges {
-  @Input() data: string;
+  data = input<string>();
+  
+  // @Input() data: string;
   // @Input() set data(value: string) {
   //   console.log(value);
   // }

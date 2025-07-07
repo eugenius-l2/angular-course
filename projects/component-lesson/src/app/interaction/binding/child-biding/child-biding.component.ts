@@ -1,28 +1,39 @@
 import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
+	ChangeDetectionStrategy,
+	Component,
+	EventEmitter,
+	input,
+	Input,
+	InputSignal,
+	output,
+	Output
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { User } from '../binding.component';
 
 @Component({
-    selector: 'app-child-biding',
-    imports: [CommonModule],
-    templateUrl: './child-biding.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush
+	selector: 'app-child-biding',
+	imports: [CommonModule],
+	templateUrl: './child-biding.component.html',
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChildBidingComponent {
-  @Input() users: User[];
-  @Input({
-    required: true,
-    alias: 'blockTitle',
-    // booleanAttribute, numberAttribute
-    transform: (value: string) => value.toUpperCase(),
-  })
-  title: string;
+	users: InputSignal<User[] | undefined> = input<User[]>();
+	// @Input() users: User[];
 
-  @Output() delete: EventEmitter<User> = new EventEmitter<User>();
+	title = input<string>('DEFAULT TITLE', {
+		// alias: 'blockTitle',
+		// transform: (v: string) => v.toUpperCase(),
+		// booleanAttribute, numberAttribute
+	});
+	// @Input({
+	//   required: true,
+	//   alias: 'blockTitle',
+	//   // booleanAttribute, numberAttribute
+	//   transform: (value: string) => value.toUpperCase(),
+	// })
+	// title: string;
+
+	deleteUser = output<User>({ alias: 'delete' });
+	// @Output('delete') deleteUser: EventEmitter<User> = new EventEmitter<User>();
 }

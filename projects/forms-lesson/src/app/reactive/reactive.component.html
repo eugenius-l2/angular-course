@@ -1,0 +1,63 @@
+<form [formGroup]="form" class="max-w-md mx-auto p-6 bg-white rounded shadow">
+	<div
+		class="flex flex-col m-2"
+		[ngClass]="{
+			error:
+				(form.controls['name'].touched || form.controls['name'].dirty) &&
+				form.controls['name'].invalid
+		}">
+		<label for="name" class="mb-1 font-semibold text-gray-700">Name</label>
+		<input
+			id="name"
+			type="text"
+			placeholder="Enter your name"
+			formControlName="name"
+			class="px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400" />
+		@if (
+			(form.controls['name'].touched || form.controls['name'].dirty) &&
+			form.controls['name'].errors
+		) {
+			@if (form.controls['name'].errors['required']) {
+				<span class="text-sm text-red-600 mt-1">Name is required</span>
+			}
+
+			@if (form.controls['name'].errors['minlength']) {
+				<span class="text-sm text-red-600 mt-1"
+					>Name must be longer than 4 characters</span
+				>
+			}
+		}
+	</div>
+
+	<div
+		class="flex flex-col m-2"
+		[ngClass]="{
+			error:
+				(form.controls['password'].touched || form.controls['password'].dirty) &&
+				form.controls['name'].invalid
+		}">
+		<label for="password" class="mb-1 font-semibold text-gray-700">Password</label>
+		<input
+			id="password"
+			type="password"
+			placeholder="Enter your passwords"
+			formControlName="password"
+			class="px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400" />
+		@if (
+			(form.controls['password'].touched || form.controls['password'].dirty) &&
+			form.controls['password'].errors
+		) {
+			@if (form.controls['password'].errors['required']) {
+				<span class="text-sm text-red-600 mt-1">Password is required</span>
+			}
+		}
+	</div>
+
+	<button
+		type="button"
+		[disabled]="form.invalid"
+		class="m-2 px-4 py-2 rounded bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+		(click)="onSave()">
+		Submit
+	</button>
+</form>

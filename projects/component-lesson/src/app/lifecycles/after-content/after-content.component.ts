@@ -3,7 +3,7 @@ import {
   AfterContentInit,
   ChangeDetectionStrategy,
   Component,
-  ContentChild,
+  contentChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChildAfterContentComponent } from './child-after-content/child-after-content.component';
@@ -17,20 +17,20 @@ import { ChildAfterContentComponent } from './child-after-content/child-after-co
 export class AfterContentComponent
   implements AfterContentInit, AfterContentChecked
 {
-  @ContentChild(ChildAfterContentComponent) content: ChildAfterContentComponent;
+  content = contentChild.required<ChildAfterContentComponent>(ChildAfterContentComponent);
 
   value: string = '';
   private prevValue: string;
 
   ngAfterContentInit(): void {
-    this.value = this.content.value;
+    this.value = this.content().value;
   }
 
   ngAfterContentChecked(): void {
-    if (this.prevValue === this.content.value) {
+    if (this.prevValue === this.content().value) {
       console.log('No changes');
     } else {
-      this.prevValue = this.content.value;
+      this.prevValue = this.content().value;
       console.log('Changed -', this.prevValue);
     }
   }

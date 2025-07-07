@@ -1,15 +1,19 @@
-<app-child-view />
 <div class="flex flex-col w-40 gap-4">
-  <button (click)="onGetDataFromChild()">Get data from child</button>
-  <p>{{ dataFromChild | json }}</p>
+	<h2 class="text-lg font-bold">View child</h2>
+	<app-checkbox-list />
+	<button class="bg-green-600 p-1 text-white rounded" (click)="onGetSelection()">
+		Get selection
+	</button>
 </div>
 
-<div class="my-10">
-  @for (id of ids; track $index) {
-  <app-child-view-ii *ngFor="let id of ids" [id]="id" />
-  }
-  <div class="flex flex-col w-48 gap-4">
-    <button (click)="onGetDataFromChildren()">Get data from children</button>
-    <p>{{ dataFromChildren | json }}</p>
-  </div>
+<div class="flex flex-col w-100 my-10 gap-4">
+	<h2 class="text-lg font-bold">View Children</h2>
+	<button class="bg-green-600 p-1 w-60 text-white rounded" (click)="onTogglePanels()">
+		Expand/Collapse panels
+	</button>
+	<div class="space-y-4 max-w-xl p-4">
+		@for (item of panels; track item.title) {
+			<app-expansion-panel [data]="item" />
+		}
+	</div>
 </div>

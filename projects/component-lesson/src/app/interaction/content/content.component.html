@@ -1,1 +1,7 @@
-<ng-content></ng-content>
+<app-content-container>
+	<app-checkbox-list />
+
+	@for (item of panels; track item.title) {
+		<app-expansion-panel [data]="item" />
+	}
+</app-content-container>

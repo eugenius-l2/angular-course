@@ -3,18 +3,11 @@ import { CommonModule } from '@angular/common';
 import { BindingComponent } from './binding/binding.component';
 import { ContentComponent } from './content/content.component';
 import { ViewComponent } from './view/view.component';
-import { ChildContentComponent } from './content/child-content/child-content.component';
 
 @Component({
-    selector: 'app-interaction',
-    templateUrl: './interaction.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [
-        CommonModule,
-        BindingComponent,
-        ContentComponent,
-        ViewComponent,
-        ChildContentComponent,
-    ]
+	selector: 'app-interaction',
+	templateUrl: './interaction.component.html',
+	imports: [CommonModule, BindingComponent, ContentComponent, ViewComponent],
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InteractionComponent {}

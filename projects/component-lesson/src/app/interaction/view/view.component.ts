@@ -1,51 +1,58 @@
 import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  OnInit,
-  QueryList,
-  ViewChild,
-  ViewChildren,
-  viewChild,
-  viewChildren,
+	AfterViewInit,
+	ChangeDetectionStrategy,
+	Component,
+	OnInit,
+	QueryList,
+	ViewChild,
+	ViewChildren,
+	viewChild,
+	viewChildren
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ChildViewComponent } from './child-view/child-view.component';
-import { ChildViewIiComponent } from './child-view-ii/child-view-ii.component';
+import { CheckboxListComponent } from '../shared/checkbox-list/checkbox-list.component';
+import { ExpansionPanelComponent } from '../shared/expansion-panel/expansion-panel.component';
+
+export interface PanelData {
+	title: string;
+	content: string;
+}
 
 @Component({
-    selector: 'app-view',
-    templateUrl: './view.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [CommonModule, ChildViewComponent, ChildViewIiComponent]
+	selector: 'app-view',
+	templateUrl: './view.component.html',
+	imports: [CommonModule, CheckboxListComponent, ExpansionPanelComponent],
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ViewComponent implements OnInit, AfterViewInit {
-  @ViewChild(ChildViewComponent, { static: true }) child: ChildViewComponent;
-  // child = viewChild<ChildViewComponent>(ChildViewComponent);
-  @ViewChildren(ChildViewIiComponent) children: QueryList<ChildViewIiComponent>;
-  // children = viewChildren<ChildViewIiComponent>(ChildViewIiComponent);
+	// @ViewChild(CheckboxListComponent, { static: true }) child: CheckboxListComponent;
+	child = viewChild.required<CheckboxListComponent>(CheckboxListComponent);
+	// @ViewChildren(CheckboxListComponent) children: QueryList<CheckboxListComponent>;
+	children = viewChildren<ExpansionPanelComponent>(ExpansionPanelComponent);
 
-  dataFromChild: number[] = [];
-  dataFromChildren: string[] = [];
-  ids: string[] = ['001', '002', '003'];
+	readonly panels = [
+		{ title: 'Overview', content: 'Basic overview of the topic.' },
+		{ title: 'Details', content: 'In-depth details about the process.' },
+		{ title: 'Examples', content: 'Practical examples for better understanding.' }
+	];
 
-  ngOnInit(): void {
-    console.log('OnInit');
-    console.log('Child', this.child);
-    console.log('Children', this.children);
-  }
+	ngOnInit(): void {
+		console.log('OnInit');
+		console.log('Child', this.child());
+		console.log('Children', this.children());
+	}
 
-  ngAfterViewInit(): void {
-    console.log('AfterViewInit');
-    console.log('Child', this.child);
-    console.log('Children', this.children);
-  }
+	ngAfterViewInit(): void {
+		console.log('AfterViewInit');
+		console.log('Child', this.child());
+		console.log('Children', this.children());
+	}
 
-  onGetDataFromChild(): void {
-    this.dataFromChild = this.child.data;
-  }
+	onGetSelection(): void {
+		console.log('Selected items:', this.child().selected());
+	}
 
-  onGetDataFromChildren(): void {
-    this.dataFromChildren = this.children.map((item) => item.changedValue);
-  }
+	onTogglePanels(): void {
+		this.children().forEach((panel) => panel.toggleExpansion());
+	}
 }

@@ -1,0 +1,17 @@
+<div class="flex flex-col w-40 gap-4">
+	<h2 class="text-lg font-bold">Content child</h2>
+	<ng-content select="app-checkbox-list"></ng-content>
+	<button class="bg-green-600 p-1 text-white rounded" (click)="onGetSelection()">
+		Get selection
+	</button>
+</div>
+
+<div class="flex flex-col w-100 my-10 gap-4">
+	<h2 class="text-lg font-bold">Content Children</h2>
+	<button class="bg-green-600 p-1 w-60 text-white rounded" (click)="onTogglePanels()">
+		Expand/Collapse panels
+	</button>
+	<div class="space-y-4 max-w-xl p-4">
+		<ng-content select="app-expansion-panel"></ng-content>
+	</div>
+</div>

@@ -1,11 +1,10 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  EventEmitter,
-  Input,
+  input,
   OnDestroy,
   OnInit,
-  Output,
+  output,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Item } from './track-by.component';
@@ -14,19 +13,19 @@ import { Item } from './track-by.component';
     selector: 'app-child-track-by',
     imports: [CommonModule],
     template: `
-    {{ item.num }} - <button (click)="delete.emit(item)">Remove</button>
+    {{ item().num }} - <button (click)="delete.emit(item())">Remove</button>
   `,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CildTrackByComponent implements OnInit, OnDestroy {
-  @Input() item!: Item;
-  @Output() delete = new EventEmitter<Item>();
+  item = input.required<Item>();
+  delete = output<Item>();
 
   ngOnInit(): void {
-    console.log('init', this.item.num);
+    console.log('init', this.item().num);
   }
 
   ngOnDestroy(): void {
-    console.log('destroy', this.item.num);
+    console.log('destroy', this.item().num);
   }
 }

@@ -29,5 +29,25 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "references": [
+    {
+      "path": "./projects/services-di-standalone-lesson/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/services-di-standalone-lesson/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/forms-lesson/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/forms-lesson/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/http-lesson/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/http-lesson/tsconfig.spec.json"
+    }
+  ]
 }

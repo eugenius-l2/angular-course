@@ -1,5 +1,6 @@
+<h2 class="mb-3 font-bold">app-cd-child-III</h2>
 <input type="text" [(ngModel)]="value" />
 <p>value - {{ value }}</p>
 <p>time - {{ checker.getTime() | date : "h:mm:ss.SSS" }}</p>
 <br />
-<p>value from parent - {{ fromParent }}</p>
+<p>value from parent - {{ fromParent() }}</p>

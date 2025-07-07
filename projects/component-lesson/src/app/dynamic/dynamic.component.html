@@ -1,6 +1,15 @@
-<ng-container appRef></ng-container>
-<ng-container #containerRef></ng-container>
+<div class="p-4 space-x-2">
+	<button class="px-3 py-1 bg-blue-600 text-white rounded" (click)="showNextBanner()">
+		Next Ad
+	</button>
+</div>
 
-  
-<button (click)="onCreate()">Add book</button>
-<button class="mx-2" (click)="onClear()">Clear</button>
+<div class="mt-4">
+	<ng-container appRef></ng-container>
+	<ng-container #containerRef></ng-container>
+	<!-- <ng-container
+		*ngComponentOutlet="
+			currentBanner.component;
+			inputs: { id: currentBanner.id }
+		"></ng-container> -->
+</div>

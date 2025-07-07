@@ -3,6 +3,7 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  viewChild,
   ViewChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -14,13 +15,13 @@ import { ChildAfterContentComponent } from './child-after-view/child-after-view.
     templateUrl: './after-view.component.html'
 })
 export class AfterViewComponent implements AfterViewInit, AfterViewChecked {
-  @ViewChild(ChildAfterContentComponent) component: ChildAfterContentComponent;
+  component = viewChild.required<ChildAfterContentComponent>(ChildAfterContentComponent);
 
   value: string = '';
   private prevValue: string;
 
   ngAfterViewInit(): void {
-    this.value = this.component.value;
+    this.value = this.component().value;
 
     // setTimeout(() => {
     //   this.value = this.component.value;
@@ -28,10 +29,10 @@ export class AfterViewComponent implements AfterViewInit, AfterViewChecked {
   }
 
   ngAfterViewChecked(): void {
-    if (this.prevValue === this.component.value) {
+    if (this.prevValue === this.component().value) {
       console.log('No changes');
     } else {
-      this.prevValue = this.component.value;
+      this.prevValue = this.component().value;
       console.log('Changed -', this.prevValue);
     }
   }

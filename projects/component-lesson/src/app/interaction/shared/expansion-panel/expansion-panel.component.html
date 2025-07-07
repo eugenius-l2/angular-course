@@ -1,0 +1,14 @@
+<div class="border rounded shadow w-full">
+	<div
+		class="cursor-pointer bg-gray-100 p-4 font-semibold flex justify-between items-center"
+		(click)="toggleExpansion()">
+		<span>{{ data().title }}</span>
+		<span>{{ expanded() ? '▲' : '▼' }}</span>
+	</div>
+
+	@if (expanded()) {
+		<div class="p-4 border-t">
+			<p>{{ data().content }}</p>
+		</div>
+	}
+</div>

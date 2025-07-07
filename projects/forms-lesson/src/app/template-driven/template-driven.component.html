@@ -1,0 +1,60 @@
+<form
+	(ngSubmit)="onSave(form)"
+	#form="ngForm"
+	class="max-w-md mx-auto p-6 bg-white rounded shadow">
+	<div
+		class="flex flex-col m-2"
+		[ngClass]="{
+			error: name.touched && name.invalid
+		}">
+		<label for="name" class="mb-1 font-semibold text-gray-700">Name</label>
+		<input
+			id="name"
+			type="text"
+			placeholder="Enter your name"
+			required
+			minlength="4"
+			[(ngModel)]="model.name"
+			name="name"
+			#name="ngModel"
+			class="px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400" />
+		<ng-container *ngIf="(name.touched || name.dirty) && name.errors">
+			<span *ngIf="name.errors['required']" class="text-sm text-red-600 mt-1"
+				>Name is required</span
+			>
+			<span *ngIf="name.errors['minlength']" class="text-sm text-red-600 mt-1"
+				>Name must be longer than 4 characters</span
+			>
+		</ng-container>
+	</div>
+
+	<div
+		class="flex flex-col m-2"
+		[ngClass]="{
+			error: password.touched && password.invalid
+		}">
+		<label for="password" class="mb-1 font-semibold text-gray-700">Password</label>
+		<input
+			id="password"
+			type="password"
+			placeholder="Enter your passwords"
+			required
+			minlength="4"
+			[(ngModel)]="model.password"
+			name="password"
+			#password="ngModel"
+			class="px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400" />
+		<ng-container *ngIf="(password.touched || password.dirty) && password.errors">
+			<span *ngIf="password.errors['required']" class="text-sm text-red-600 mt-1"
+				>Password is required</span
+			>
+		</ng-container>
+	</div>
+
+	<button
+		type="submit"
+		[disabled]="form.invalid"
+		class="m-2 px-4 py-2 rounded bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+		Submit
+	</button>
+</form>

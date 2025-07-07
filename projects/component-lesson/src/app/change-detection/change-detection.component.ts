@@ -5,7 +5,7 @@ import {
   NgZone,
   OnInit,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { CdChildIComponent } from './cd-child-i/cd-child-i.component';
 import { CdChildIIComponent } from './cd-child-ii/cd-child-ii.component';
 import { FormsModule } from '@angular/forms';
@@ -21,7 +21,7 @@ export class TimeChecker {
     templateUrl: './change-detection.component.html',
     styleUrls: ['./change-detection.component.scss'],
     // changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [CommonModule, CdChildIComponent, CdChildIIComponent, FormsModule]
+    imports: [CdChildIComponent, CdChildIIComponent, FormsModule, DatePipe]
 })
 export class ChangeDetectionComponent implements OnInit {
   value: string = '';

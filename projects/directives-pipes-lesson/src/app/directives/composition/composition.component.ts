@@ -1,54 +1,55 @@
 import {
-  ChangeDetectionStrategy,
-  Component,
-  Directive,
-  ElementRef,
-  Input,
-  OnInit,
+	ChangeDetectionStrategy,
+	Component,
+	Directive,
+	ElementRef,
+	input,
+	Input,
+	OnInit
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Directive({
-  standalone: true,
+	standalone: true
 })
 export class BoldDirective implements OnInit {
-  constructor(private el: ElementRef) {}
+	constructor(private el: ElementRef) {}
 
-  ngOnInit(): void {
-    this.el.nativeElement.style.fontWeight = '900';
-  }
+	ngOnInit(): void {
+		this.el.nativeElement.style.fontWeight = '900';
+	}
 }
 
 @Directive({
-  standalone: true,
+	standalone: true
 })
 export class ColorDirective implements OnInit {
-  @Input() color: string = 'black';
+	color = input<string>('black');
 
-  constructor(private el: ElementRef) {}
+	constructor(private el: ElementRef) {}
 
-  ngOnInit(): void {
-    this.el.nativeElement.style.color = this.color;
-  }
+	ngOnInit(): void {
+		this.el.nativeElement.style.color = this.color();
+	}
 }
 
 @Directive({
-  selector: '[colorBold]',
-  standalone: true,
-  hostDirectives: [BoldDirective, ColorDirective],
+	selector: '[colorBold]',
+	standalone: true,
+	hostDirectives: [BoldDirective, ColorDirective]
 })
 export class ColorBoldDirective {}
 
 @Component({
-    selector: 'app-composition',
-    imports: [CommonModule],
-    template: '<span> Color </span>',
-    hostDirectives: [
-        {
-            directive: ColorDirective,
-            inputs: ['color'],
-        },
-    ],
-    changeDetection: ChangeDetectionStrategy.OnPush
+	selector: 'app-composition',
+	imports: [CommonModule],
+	template: '<span> Color </span>',
+	hostDirectives: [
+		{
+			directive: ColorDirective,
+			inputs: ['color']
+		}
+	],
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CompositionComponent {}

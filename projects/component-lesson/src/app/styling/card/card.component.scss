@@ -1,0 +1,36 @@
+.card {
+	display: block;
+	padding: 1rem;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	background-color: #fff;
+	transition: all 0.3s ease;
+	font-family: sans-serif;
+}
+
+.title {
+	margin: 0 0 0.5rem;
+	font-size: 1.1rem;
+}
+
+.description {
+	margin: 0;
+	font-size: 0.95rem;
+	color: #555;
+}
+
+body {
+	background-color: red;
+}
+
+// :host(.active) {
+// 	border-color: #007acc;
+// 	box-shadow: 0 0 0 2px #007acc33;
+// 	background-color: #f0faff;
+// }
+
+// :host-context(.active) {
+// 	border-color: #007acc;
+// 	box-shadow: 0 0 0 2px #007acc33;
+// 	background-color: #f0faff;
+// }

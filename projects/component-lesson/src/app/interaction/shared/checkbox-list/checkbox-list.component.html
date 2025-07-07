@@ -1,0 +1,32 @@
+<div class="p-4 border rounded w-64 space-y-2">
+	<h2 class="font-bold">Select Options</h2>
+
+	<label class="flex items-center gap-2">
+		<input
+			type="checkbox"
+			[checked]="isSelected('Alpha')"
+			(change)="toggle('Alpha')" />
+		Alpha
+	</label>
+
+	<label class="flex items-center gap-2">
+		<input type="checkbox" [checked]="isSelected('Beta')" (change)="toggle('Beta')" />
+		Beta
+	</label>
+
+	<label class="flex items-center gap-2">
+		<input
+			type="checkbox"
+			[checked]="isSelected('Gamma')"
+			(change)="toggle('Gamma')" />
+		Gamma
+	</label>
+
+	<label class="flex items-center gap-2">
+		<input
+			type="checkbox"
+			[checked]="isSelected('Delta')"
+			(change)="toggle('Delta')" />
+		Delta
+	</label>
+</div>

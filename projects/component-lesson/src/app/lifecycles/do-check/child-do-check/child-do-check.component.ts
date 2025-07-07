@@ -2,7 +2,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   DoCheck,
+  input,
   Input,
+  InputSignal,
   IterableDiffer,
   IterableDiffers,
   KeyValueDiffer,
@@ -16,16 +18,16 @@ import { Author, Book } from '../do-check.component';
     selector: 'app-child-do-check',
     imports: [CommonModule],
     template: `
-    <p>Author id - {{ author.id }}</p>
-    @for (book of books; track $index) {
+    <p>Author id - {{ author().id }}</p>
+    @for (book of books(); track $index) {
     <p>Book - {{ book | json }}</p>
     }
   `,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChildDoCheckComponent implements OnInit, DoCheck {
-  @Input() author: Author;
-  @Input() books: Book[];
+  author: InputSignal<Author> = input.required<Author>();
+  books: InputSignal<Book[]> = input<Book[]>([]);
 
   valueDiffer: KeyValueDiffer<any, any>;
   arrayDiffer: IterableDiffer<any>;
@@ -36,13 +38,13 @@ export class ChildDoCheckComponent implements OnInit, DoCheck {
   ) {}
 
   ngOnInit(): void {
-    this.valueDiffer = this.valueDiffers.find(this.author).create();
-    this.arrayDiffer = this.itarableDiffers.find(this.books).create();
+    this.valueDiffer = this.valueDiffers.find(this.author()).create();
+    this.arrayDiffer = this.itarableDiffers.find(this.books()).create();
   }
 
   ngDoCheck(): void {
-    const valueChanges = this.valueDiffer.diff(this.author);
-    const arrayChanges = this.arrayDiffer.diff(this.books);
+    const valueChanges = this.valueDiffer.diff(this.author());
+    const arrayChanges = this.arrayDiffer.diff(this.books());
 
     if (valueChanges) {
       valueChanges.forEachChangedItem((item) => console.log(item));

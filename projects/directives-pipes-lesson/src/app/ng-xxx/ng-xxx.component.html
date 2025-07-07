@@ -1,47 +1,47 @@
 <div class="flex flex-col gap-10 w-full">
-  <div class="flex flex-col w-full gap-8 bg-orange-300 p-5">
-    <h2>ng-template</h2>
+	<div class="flex flex-col w-full gap-8 bg-orange-300 p-5">
+		<h2>ng-template</h2>
 
-    <div class="flex flex-col gap-2">
-      <button (click)="isTemplateShown = !isTemplateShown">Toggle</button>
-      <p *ngIf="isTemplateShown; else falsely">Shows when condition is true</p>
-      <ng-template #falsely>
-        <p>Shows when condition is false</p>
-      </ng-template>
+		<div class="flex flex-col gap-2">
+			<button (click)="isTemplateShown = !isTemplateShown">Toggle</button>
 
-      @if (isTemplateShown) {
-      <p>Shows when condition is true</p>
-      }@else {
-      <p>Shows when condition is false</p>
-      }
-    </div>
+			@if (isTemplateShown) {
+				<p>Shows when condition is true</p>
+			} @else {
+				<p>Shows when condition is false</p>
+			}
 
-    <div class="flex flex-col gap-2">
-      <ng-container
-        *ngTemplateOutlet="
-          item;
-          context: { $implicit: itemData, role: 'admin' }
-        "
-      ></ng-container>
-      <ng-template #item let-item let-role="role">
-        <p>user name - {{ item.name }}</p>
-        <p>user role - {{ role }}</p>
-      </ng-template>
-    </div>
-  </div>
+			<p *ngIf="isTemplateShown; else falsely">Shows when condition is true</p>
+			<ng-template #falsely>
+				<p>Shows when condition is false</p>
+			</ng-template>
+		</div>
 
-  <div class="flex flex-col w-full gap-2 bg-green-300 p-5">
-    <h2>ng-container</h2>
+		<div class="flex flex-col gap-2">
+			<ng-container
+				*ngTemplateOutlet="
+					item;
+					context: { $implicit: itemData, role: 'admin' }
+				"></ng-container>
+			<ng-template #item let-item let-role="role">
+				<p>user name - {{ item.name }}</p>
+				<p>user role - {{ role }}</p>
+			</ng-template>
+		</div>
+	</div>
 
-    <ng-container *ngIf="list">
-      <ng-container *ngFor="let item of list">{{ item }}</ng-container>
-    </ng-container>
-  </div>
+	<div class="flex flex-col w-full gap-2 bg-green-300 p-5">
+		<h2>ng-container</h2>
 
-  <div class="flex flex-col w-full gap-2 bg-red-300 p-5">
-    <h2>ng-content</h2>
-    <ng-content></ng-content>
-    <ng-content select="[firt]"></ng-content>
-    <ng-content select="[second]"></ng-content>
-  </div>
+		<ng-container *ngIf="list">
+			<ng-container *ngFor="let item of list">{{ item }}</ng-container>
+		</ng-container>
+	</div>
+
+	<div class="flex flex-col w-full gap-2 bg-red-300 p-5">
+		<h2>ng-content</h2>
+		<ng-content></ng-content>
+		<ng-content select="[first]"></ng-content>
+		<ng-content select="[second]"></ng-content>
+	</div>
 </div>
